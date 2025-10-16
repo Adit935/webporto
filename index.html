@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Saputra Setiadi - Creative Developer</title>
+    <title>Portofolio - Creative Developer</title>
     <style>
         * {
             margin: 0;
@@ -17,8 +17,6 @@
             --accent: #ec4899;
             --dark: #0f172a;
             --darker: #020617;
-            --sidebar-bg: rgba(15, 23, 42, 0.98);
-            --sidebar-hover: rgba(99, 102, 241, 0.2);
         }
 
         body {
@@ -118,221 +116,6 @@
 
         nav a:hover::before {
             width: 100%;
-        }
-
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            position: relative;
-            width: 30px;
-            height: 30px;
-            justify-content: space-between;
-            z-index: 1001;
-        }
-
-        .hamburger span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(7px, 7px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        /* Mobile Sidebar */
-        .mobile-sidebar {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            height: 100vh;
-            background: var(--sidebar-bg);
-            backdrop-filter: blur(20px);
-            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 999;
-            display: none;
-        }
-
-        .mobile-sidebar.active {
-            right: 0;
-        }
-
-        .sidebar-header {
-            position: relative;
-            padding: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .sidebar-logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .close-btn {
-            width: 40px;
-            height: 40px;
-            background: rgba(139, 92, 246, 0.2);
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .close-btn:hover {
-            background: rgba(139, 92, 246, 0.3);
-            transform: rotate(90deg);
-        }
-
-        .close-btn span {
-            position: absolute;
-            width: 20px;
-            height: 2px;
-            background: #fff;
-            transition: all 0.3s ease;
-        }
-
-        .close-btn span:first-child {
-            transform: rotate(45deg);
-        }
-
-        .close-btn span:last-child {
-            transform: rotate(-45deg);
-        }
-        
-        .close-btn:hover span {
-            background: var(--accent);
-        }
-
-        .sidebar-nav {
-            padding: 2rem 0;
-            height: calc(100vh - 80px);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .sidebar-nav ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            padding: 0 2rem;
-        }
-
-        .sidebar-nav li {
-            opacity: 0;
-            transform: translateX(50px);
-            animation: slideIn 0.5s ease forwards;
-        }
-
-        .sidebar-nav li:nth-child(1) { animation-delay: 0.1s; }
-        .sidebar-nav li:nth-child(2) { animation-delay: 0.2s; }
-        .sidebar-nav li:nth-child(3) { animation-delay: 0.3s; }
-        .sidebar-nav li:nth-child(4) { animation-delay: 0.4s; }
-        .sidebar-nav li:nth-child(5) { animation-delay: 0.5s; }
-        .sidebar-nav li:nth-child(6) { animation-delay: 0.6s; }
-        .sidebar-nav li:nth-child(7) { animation-delay: 0.7s; }
-
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .sidebar-nav a {
-            display: block;
-            padding: 1.2rem 2rem;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .sidebar-nav a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .sidebar-nav a:hover {
-            background: var(--sidebar-hover);
-            color: #fff;
-            padding-left: 3rem;
-            transform: translateX(5px);
-        }
-
-        .sidebar-nav a:hover::before {
-            left: 100%;
-        }
-
-        .sidebar-nav a.active {
-            background: rgba(139, 92, 246, 0.2);
-            color: #fff;
-            border-left: 4px solid var(--secondary);
-        }
-
-        .sidebar-decoration {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(to top, rgba(99, 102, 241, 0.1), transparent);
-            pointer-events: none;
-        }
-
-        .sidebar-decoration::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
         }
 
         /* Hero Section */
@@ -971,4 +754,971 @@
             inset: 0;
             background: rgba(0,0,0,0.3);
             opacity: 0;
-            transition
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover .project-image::before {
+            opacity: 1;
+        }
+
+        .project-content {
+            padding: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-number {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .tag {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        /* Contact Section - Enhanced & Centered */
+        #contact {
+            padding: 8rem 3rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05));
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .contact-wrapper {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff, rgba(255,255,255,0.5));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .contact-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .info-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .info-card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .info-card p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
+        .info-card a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-card a:hover {
+            color: var(--accent);
+        }
+
+        .map-container {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            height: 300px;
+            position: relative;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .contact-form-container {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 25px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .contact-form-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite reverse;
+        }
+
+        .contact-form {
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(99, 102, 241, 0.2);
+            border-radius: 15px;
+            padding: 1rem 1.5rem;
+            color: white;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.05);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            padding: 1.2rem 2rem;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+
+        .submit-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.4);
+        }
+
+        .social-section {
+            margin-top: 3rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .social-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.1);
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease;
+            z-index: -1;
+        }
+
+        .social-link:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .social-link:hover {
+            border-color: transparent;
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0,0,0,0.3);
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .cursor, .cursor-follower {
+                display: none;
+            }
+
+            .education-card {
+                flex-direction: column;
+            }
+
+            .education-year {
+                min-width: 100%;
+                height: 60px;
+                flex-direction: row;
+                gap: 1rem;
+            }
+
+            .experience-card {
+                flex-direction: column;
+            }
+
+            .experience-date {
+                min-width: 100%;
+                height: 60px;
+                flex-direction: row;
+                gap: 1rem;
+            }
+
+            .contact-header h2 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo">PORTFOLIO</div>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#education">Pendidikan</a></li>
+                <li><a href="#experience">Pengalaman</a></li>
+                <li><a href="#skills">Skill</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="gradient-bg"></div>
+        <div class="grid-bg"></div>
+        <div class="particles" id="particles"></div>
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        
+        <div class="hero-content">
+            <h1>Aditya Saputra Setiadi</h1>
+            <p>Smkn 1 Kawali XII PPLG 2</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="reveal">
+        <h2 class="section-title">Tentang Saya</h2>
+        
+        <div class="about-grid">
+            <div class="about-image">
+                <div class="profile-pic-container">
+                    <!-- Ganti URL di bawah dengan URL foto Anda -->
+                    <img src="gua.jpg" alt="Profile Picture" class="profile-pic" id="profilePic" onerror="this.style.display='none'; document.getElementById('profilePlaceholder').style.display='flex'">
+                    <div class="profile-pic-placeholder" id="profilePlaceholder" style="display: none;">
+                        <span>👤</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-text">
+                <h4><p>Saya seorang pelajar di SMKN 1 Kawali jurusan Pengembangan Perangkat Lunak dan Gim (PPLG). Saya memiliki minat besar dalam dunia teknologi, khususnya dalam pengembangan perangkat lunak dan gim. Saya terus belajar untuk mengembangkan keterampilan pemrograman serta desain gim demi masa depan yang lebih baik.</p></h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="reveal">
+        <h2 class="section-title">Riwayat Pendidikan</h2>
+        
+        <div class="education-container">
+            <div class="education-card">
+                <div class="education-year">
+                    2023
+                    <span>2026</span>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-school">SMKN 1 Kawali</h3>
+                    <h4 class="education-degree">Pengembangan Perangkat Lunak dan Gim (PPLG)</h4>
+                    <p class="education-description">Sedang menempuh pendidikan di jurusan Pengembangan Perangkat Lunak dan Gim dengan fokus pada pembelajaran HTML, CSS, Laravel, PHP, dan Design</p>
+                </div>
+            </div>
+            
+            <div class="education-card">
+                <div class="education-year">
+                    2020
+                    <span>- 2023</span>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-school">SMPN 1 Kawali</h3>
+                    <h4 class="education-degree">Sekolah Menengah Pertama</h4>
+                    <p class="education-description">Menyelesaikan pendidikan menengah pertama dengan prestasi akademik yang baik dan aktif dalam kegiatan ekstrakurikuler.</p>
+                </div>
+            </div>
+            
+            <div class="education-card">
+                <div class="education-year">
+                    2014
+                    <span>- 2020</span>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-school">MI PANIMBANG</h3>
+                    <h4 class="education-degree">Madrasah Ibtidaiyah</h4>
+                    <p class="education-description">Menyelesaikan pendidikan dasar dengan nilai yang memuaskan dan mulai menunjukkan minat dalam bidang teknologi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="reveal">
+        <h2 class="section-title">Pengalaman</h2>
+        
+        <div class="experience-container">
+            <div class="experience-card">
+                <div class="experience-date">
+                    2025
+                    <span>4 Bulan</span>
+                </div>
+                <div class="experience-content">
+                    <h3 class="experience-position">Magang </h3>
+                    <h4 class="experience-company">Magang di PT. Inovindo Digital Media</h4>
+                    <p class="experience-description">Bertanggung jawab untuk mengembangkan dan memelihara website perusahaan menggunakan Laravel dan Bootstrap. Membantu dalam optimasi performa website dan implementasi fitur baru sesuai kebutuhan klien.</p>
+                    <div class="experience-skills">
+                        <span class="experience-skill">Laravel</span>
+                        <span class="experience-skill">PHP</span>
+                        <span class="experience-skill">MySQL</span>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-date">
+                    2023
+                    <span>2025</span>
+                </div>
+                <div class="experience-content">
+                    <h3 class="experience-position">Anggota Ekstrakurikuler IT (Divisi Ict)</h3>
+                    <p class="experience-description">Menyiapkan peralatan yang akan di pakai & Membantu Divisi lain</p>
+                </div>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-content">
+                    <h3 class="experience-position">Pelatihan landing page</h3>
+                    <p class="experience-description">Mengikuti Pelatihan pembuatan landing page</p>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-content">
+                    <h3 class="experience-position">Mengikuti program digitalisasi pendidikan pandi bersama dinas pendidikan jawa barat</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="reveal">
+        <h2 class="section-title">Skill Saya</h2>
+        
+        <div class="skills-container">
+            <div class="skill-card">
+                <span class="skill-icon">⚡</span>
+                <div class="skill-name">HTML</div>
+                <p class="skill-description">Saya menggunakan HTML untuk membuat struktur dasar sebuah halaman web.</p>
+            </div>
+            <div class="skill-card">
+                <span class="skill-icon">🎨</span>
+                <div class="skill-name">UI/UX Design</div>
+                <p class="skill-description">Saya menggunakan Figma untuk merancang tampilan (UI/UX) sebelum membuat website.</p>
+            </div>
+            <div class="skill-card">
+                <span class="skill-icon">⚙️</span>
+                <div class="skill-name">CSS</div>
+                <p class="skill-description">Saya memakai CSS untuk mempercantik tampilan web.</p>
+            </div>
+            <div class="skill-card">
+                <span class="skill-icon">⚙️</span>
+                <div class="skill-name">PHP</div>
+                <p class="skill-description">Saya menggunakan bahasa pemrograman PHP karena PHP merupakan salah satu bahasa yang paling populer untuk membangun website dinamis.</p>
+            </div>
+            <div class="skill-card">
+                <span class="skill-icon">⚙️</span>
+                <div class="skill-name">LARAVEL</div>
+                <p class="skill-description">Saya menggunakan Laravel, yaitu framework PHP berbasis MVC (Model-View-Controller) yang memudahkan dalam membuat aplikasi web modern. Sebagai pengguna tingkat menengah,</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="reveal">
+        <h2 class="section-title">Proyek Saya</h2>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">🎯</div>
+                <div class="project-content">
+                    <div class="project-number">Project 01</div>
+                    <h3 class="project-title">Absensi Exit</h3>
+                    <p class="project-description">Saya membuat project Absensi Exit untuk mempermudah proses pencatatan kehadiran dan waktu keluar siswa.</p>
+                    <div class="project-tags">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image">🚀</div>
+                <div class="project-content">
+                    <div class="project-number">Project 02</div>
+                    <h3 class="project-title">Game Kuis</h3>
+                    <p class="project-description">Saya membuat project Game Kuis Pancasila sebagai media pembelajaran interaktif untuk mengenalkan nilai-nilai Pancasila dengan cara yang menyenangkan. Dalam game ini, pemain akan menjawab pertanyaan seputar sila-sila Pancasila dan maknanya.</p>
+                    <div class="project-tags">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">🎯</div>
+                <div class="project-content">
+                    <div class="project-number">Project 03</div>
+                    <h3 class="project-title">Rental Motor</h3>
+                    <p class="project-description">Saya membuat sebuah website rental motor yang berfungsi sebagai sistem peminjaman dan pengelolaan data kendaraan secara digital. Website ini dirancang untuk mempermudah proses penyewaan motor bagi pelanggan serta memudahkan pemilik rental dalam mengelola data motor, pelanggan, dan transaksi penyewaan.</p>
+                    <div class="project-tags">
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🚀</div>
+                <div class="project-content">
+                    <div class="project-number">Project 04</div>
+                    <h3 class="project-title">App Notes</h3>
+                    <p class="project-description">Saya membuat sebuah aplikasi Notes yang berfungsi untuk mencatat berbagai hal penting secara digital, seperti tugas, ide, jadwal, maupun pengingat kegiatan sehari-hari. Aplikasi ini dirancang agar pengguna dapat dengan mudah menulis, menyimpan, dan mengelola catatan kapan saja dan di mana saja.</p>
+                    <div class="project-tags">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Contact Section - Centered -->
+    <section id="contact" class="reveal">
+        <div class="contact-wrapper">
+            <!-- Contact Header -->
+            <div class="contact-header">
+                <h2>Hubungi Saya</h2>
+                <p>Saya selalu terbuka untuk diskusi tentang proyek menarik dan peluang kolaborasi. Jangan ragu untuk menghubungi saya!</p>
+            </div>
+
+            <!-- Contact Info Cards -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-card-icon">📍</div>
+                    <h3>Alamat</h3>
+                    <p>Dusun Panimbang, Desa Purwasari<br>Kec. Kawali, Kab. Ciamis<br>Jawa Barat, Indonesia</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">📞</div>
+                    <h3>Telepon</h3>
+                    <p><a href="tel:+6282123789852">+62 821-2378-9852</a></p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:aditia11108@gmail.com">aditia11108@gmail.com</a></p>
+                </div>
+            </div>
+
+            <!-- Map Container -->
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!4v1760514049172!6m8!1m7!1sRGXYP7VeLsv0l0i9m93BBw!2m2!1d-7.161820048627663!2d108.3745914986711!3f113.72220524188293!4f-14.115762446579879!5f0.7820865974627469"
+                    width="600"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <!-- Social Links Section -->
+            <div class="social-section">
+                <h3>Ikuti Saya di Media Sosial</h3>
+                <div class="social-links">
+                    <a href="https://www.tiktok.com/@adit.dev1?is_from_webapp=1&sender_device=pc" class="social-link" title="TikTok">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/adityaaa11108?igsh=NHBoaTlyMTFkcTZh" class="social-link" title="Instagram">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aditya-saputra-setiadi-b535bb38a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link" title="LinkedIn">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Portfolio. Aditya</p>
+    </footer>
+
+    <script>
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        // Profile Picture Upload (Optional)
+        const profilePic = document.getElementById('profilePic');
+        const profilePlaceholder = document.getElementById('profilePlaceholder');
+        
+        // Fungsi untuk mengganti foto profil
+        function changeProfilePic(imageUrl) {
+            profilePic.src = imageUrl;
+            profilePic.style.display = 'block';
+            profilePlaceholder.style.display = 'none';
+        }
+        
+        // Contoh: Uncomment dan ganti URL di bawah dengan foto Anda
+        // changeProfilePic('URL_FOTO_ANDA');
+
+        // Profile pic hover effect
+        if (profilePic) {
+            profilePic.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) rotate(5deg)';
+            });
+            
+            profilePic.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        }
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Particles Animation
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Scroll Reveal Animation
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        reveals.forEach(reveal => {
+            revealObserver.observe(reveal);
+        });
+
+        // Form Submit Handler
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            // Add loading state
+            const btn = e.target.querySelector('.submit-btn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Mengirim...';
+            btn.disabled = true;
+            
+            // Simulate sending
+            setTimeout(() => {
+                btn.textContent = '✓ Terkirim!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    e.target.reset();
+                }, 2000);
+            }, 1500);
+        }
+
+        // Hover Effects for Cards
+        const cards = document.querySelectorAll('.project-card, .skill-card, .stat-card, .education-card, .experience-card, .info-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                cursor.style.transform = 'scale(2)';
+                cursor.style.borderColor = '#ec4899';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.borderColor = '#6366f1';
+            });
+        });
+
+        // Parallax Effect for Hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-shape');
+            
+            parallaxElements.forEach((el, index) => {
+                const speed = (index + 1) * 0.5;
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Counter Animation for Stats
+        const animateCounter = (element, target) => {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + '+';
+                }
+            }, 30);
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const number = entry.target.querySelector('.stat-number');
+                    const target = parseInt(number.textContent);
+                    animateCounter(number, target);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            statsObserver.observe(card);
+        });
+
+        // Add glow effect on button hover
+        const buttons = document.querySelectorAll('.btn, .submit-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                btn.style.setProperty('--x', x + 'px');
+                btn.style.setProperty('--y', y + 'px');
+            });
+        });
+
+        // Form input focus effects
+        const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
