@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio - Creative Developer</title>
+    <title> - Creative Developer</title>
     <style>
         * {
             margin: 0;
@@ -710,6 +710,26 @@
             gap: 2rem;
         }
 
+        .close-btn span {
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn span:first-child {
+            transform: rotate(45deg);
+        }
+
+        .close-btn span:last-child {
+            transform: rotate(-45deg);
+        }
+        
+        .close-btn:hover span {
+            background: var(--accent);
+        }
+        
         .education-card::before {
             content: '';
             position: absolute;
@@ -2007,3 +2027,4 @@
     </script>
 </body>
 </html>
+
