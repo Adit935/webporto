@@ -17,6 +17,8 @@
             --accent: #ec4899;
             --dark: #0f172a;
             --darker: #020617;
+            --sidebar-bg: rgba(15, 23, 42, 0.98); /* 改回原来的深色背景 */
+            --sidebar-hover: rgba(99, 102, 241, 0.2); /* 改回原来的悬停颜色 */
         }
 
         body {
@@ -118,7 +120,7 @@
             width: 100%;
         }
 
-        /* Hamburger Menu */
+        /* Hamburger Menu - 重新设计 */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -149,6 +151,187 @@
 
         .hamburger.active span:nth-child(3) {
             transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* 移动端侧边栏 - 改回原来的颜色 */
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            backdrop-filter: blur(20px);
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+            display: none;
+        }
+
+        .mobile-sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-header {
+            position: relative;
+            padding: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidebar-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .close-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(139, 92, 246, 0.2);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .close-btn:hover {
+            background: rgba(139, 92, 246, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .close-btn::before,
+        .close-btn::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn::before {
+            transform: rotate(45deg);
+        }
+
+        .close-btn::after {
+            transform: rotate(-45deg);
+        }
+
+        .sidebar-nav {
+            padding: 2rem 0;
+            height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0 2rem;
+        }
+
+        .sidebar-nav li {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .sidebar-nav li:nth-child(1) { animation-delay: 0.1s; }
+        .sidebar-nav li:nth-child(2) { animation-delay: 0.2s; }
+        .sidebar-nav li:nth-child(3) { animation-delay: 0.3s; }
+        .sidebar-nav li:nth-child(4) { animation-delay: 0.4s; }
+        .sidebar-nav li:nth-child(5) { animation-delay: 0.5s; }
+        .sidebar-nav li:nth-child(6) { animation-delay: 0.6s; }
+        .sidebar-nav li:nth-child(7) { animation-delay: 0.7s; }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 1.2rem 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar-nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .sidebar-nav a:hover {
+            background: var(--sidebar-hover);
+            color: #fff;
+            padding-left: 3rem;
+            transform: translateX(5px);
+        }
+
+        .sidebar-nav a:hover::before {
+            left: 100%;
+        }
+
+        .sidebar-nav a.active {
+            background: rgba(139, 92, 246, 0.2);
+            color: #fff;
+            border-left: 4px solid var(--secondary);
+        }
+
+        /* 装饰性元素 - 改回原来的颜色 */
+        .sidebar-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, rgba(99, 102, 241, 0.1), transparent);
+            pointer-events: none;
+        }
+
+        .sidebar-decoration::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
         }
 
         /* Hero Section */
@@ -1188,44 +1371,14 @@
                 display: flex;
             }
 
+            /* 隐藏原来的导航菜单 */
             nav ul {
-                position: fixed;
-                top: 0;
-                right: -280px; /* 减小宽度 */
-                width: 260px; /* 减小宽度 */
-                height: 100vh;
-                background: rgba(15, 23, 42, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: flex-start; /* 改为顶部对齐 */
-                align-items: stretch; /* 改为拉伸 */
-                padding: 5rem 0 2rem 0; /* 减小顶部padding */
-                transition: right 0.3s ease;
-                z-index: 999;
-                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+                display: none;
             }
 
-            nav ul.active {
-                right: 0;
-            }
-
-            nav ul li {
-                margin: 0; /* 移除所有margin */
-                width: 100%;
-                text-align: center;
-            }
-
-            nav ul li a {
-                font-size: 1rem; /* 减小字体 */
-                padding: 0.6rem 1rem; /* 进一步减小内边距 */
+            /* 显示新的侧边栏 */
+            .mobile-sidebar {
                 display: block;
-                width: 100%;
-                transition: all 0.3s ease;
-            }
-
-            nav ul li a:hover {
-                background: rgba(99, 102, 241, 0.1);
-                padding-left: 1.5rem; /* 悬停时增加左边距 */
             }
 
             .hero h1 {
@@ -1318,6 +1471,26 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">MENU</div>
+            <button class="close-btn" id="closeBtn"></button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#home" class="sidebar-link">Beranda</a></li>
+                <li><a href="#about" class="sidebar-link">Tentang</a></li>
+                <li><a href="#education" class="sidebar-link">Pendidikan</a></li>
+                <li><a href="#experience" class="sidebar-link">Pengalaman</a></li>
+                <li><a href="#skills" class="sidebar-link">Skill</a></li>
+                <li><a href="#projects" class="sidebar-link">Proyek</a></li>
+                <li><a href="#contact" class="sidebar-link">Kontak</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-decoration"></div>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -1653,21 +1826,40 @@
             }
         });
 
-        // Hamburger Menu Toggle
+        // Mobile Sidebar Controls
         const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-        
+        const mobileSidebar = document.getElementById('mobileSidebar');
+        const closeBtn = document.getElementById('closeBtn');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        // Open sidebar
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            mobileSidebar.classList.add('active');
+            hamburger.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent body scroll
         });
 
-        // Close menu when clicking on a link
-        document.querySelectorAll('#nav-menu a').forEach(link => {
+        // Close sidebar
+        function closeSidebar() {
+            mobileSidebar.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Enable body scroll
+        }
+
+        closeBtn.addEventListener('click', closeSidebar);
+
+        // Close sidebar when clicking on a link
+        sidebarLinks.forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+                closeSidebar();
             });
+        });
+
+        // Close sidebar when clicking outside
+        mobileSidebar.addEventListener('click', (e) => {
+            if (e.target === mobileSidebar) {
+                closeSidebar();
+            }
         });
 
         // Smooth Scroll
